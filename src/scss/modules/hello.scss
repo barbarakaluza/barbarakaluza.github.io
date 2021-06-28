@@ -1,65 +1,49 @@
-@keyframes circles {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  20% {
-    transform: translate(-50%, -50%) scale(1.5);
-  }
-  30% {
-    transform: translate(-50%, -50%) scale(0.8);
-  }
-  70% {
-    transform: translate(-50%, -50%) scale(1.9);
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-  }
+.hello {
+  background-color: #ffffff;
+  text-align: center;
+}
+.hello__img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-top: 98px;
+  margin-bottom: 24px;
+  border: 12px solid #f6f9fd;
+}
+.hello__description {
+  margin: 16px;
+  margin-bottom: 48px;
+  color: #425a70;
+  font-size: 16px;
+  line-height: 32px;
 }
 
-.hello {
-  position: relative;
-  z-index: 0;
-  &__logo {
-    position: relative;
-    z-index: 2020;
-  }
-  &__circles {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    will-change: transform;
-    width: 220px;
-    height: 220px;
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    animation: circles 20s ease-in infinite;
-    &::after {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      will-change: transform;
-      width: 220px;
-      height: 220px;
-      background: rgba(0, 0, 0, 0.1);
-      border-radius: 50%;
-      content: "";
-      display: block;
-      z-index: 1;
-      animation: circles 17s ease-out infinite;
-    }
-    &::before {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      will-change: transform;
-      width: 220px;
-      height: 220px;
-      background: rgba(0, 0, 0, 0.1);
-      border-radius: 50%;
-      content: "";
-      display: block;
-      z-index: 1;
-      animation: circles 20s ease-in infinite;
-    }
-  }
+.hello__link {
+  text-decoration: none;
+  color: #4da8ff;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.hello__header {
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 32px;
+  margin: 16px;
+  color: #234361;
+}
+
+.header__blue {
+  color: #1070ca;
+}
+
+.hello__mail {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  color: #ffffff;
+  background: #4da8ff;
+  padding: 4px 20px;
+  border-radius: 64px;
 }
