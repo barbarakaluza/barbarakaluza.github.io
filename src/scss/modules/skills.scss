@@ -1,0 +1,40 @@
+.skills {
+  background-color: #1070ca;
+  color: #ffffff;
+  margin-top: 92px;
+  text-align: center;
+  padding-top: 55px;
+  padding-bottom: 32px;
+}
+
+.skills__icon {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.skills__list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 0;
+  margin: 16px;
+  line-height: 32px;
+  margin-bottom: 64px;
+}
+
+.skills__list--working > li::before {
+  content: "✔️";
+  margin-right: 12px;
+}
+
+.skills__list--know-somethig > li::before {
+  content: "⚪";
+  margin-right: 12px;
+}
+
+.skills__list--want > li::before {
+  content: "❔";
+  margin-right: 12px;
+}
+
