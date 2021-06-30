@@ -1,0 +1,74 @@
+@media screen and (min-width: 1024px) {
+  .hello {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cloud__text {
+    width: 230px;
+    height: 72px;
+    font-size: 32px;
+    padding: 16px 19px;
+    background: #1070ca;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 16px;
+    margin: 0;
+    position: absolute;
+    right: 414px;
+    top: 60px;
+  }
+  
+  .cloud__speech {
+      position: absolute;
+      right: 600px;
+      top: 131px;
+  }
+
+  .hello__img {
+    width: 200px;
+    height: 200px;
+    border: 18px solid #f6f9fd;
+  }
+
+  .hello__description {
+    padding-left: 305px;
+    padding-right: 305px;
+  }
+
+  .skills {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    padding-right: 128px;
+    padding-left: 128px;
+  }
+
+  .skills__list {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .recent__projects {
+    margin-top: 90px;
+  }
+
+  .contact-me {
+      padding-top: 80px;
+  }
+  .contact-me__links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 176px;  
+  }
+
+  .contact-me__mail {
+    margin-top: 0;
+    padding-bottom: 12px;
+    margin-left: 110px;
+  }
+}

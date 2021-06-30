@@ -147,6 +147,13 @@
   <body>
     <main class="main">
       <section class="hello">
+        <div class="hello__cloud">
+        <p class="cloud__text">Hi there! <span class="cloud__hand">👋</span></p>
+        <div class="cloud__speech"><svg width="18" height="23" viewBox="0 0 18 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M1.35075 22.6576C3.87945 19.8279 5.4167 16.0935 5.4167 12C5.4167 7.22123 3.32168 2.93178 0 0H17.4167C17.4167 10.4744 10.7067 19.3816 1.35075 22.6576Z" fill="#1070CA"/>
+          </svg>
+          </div>
+        </div>
         <img class="hello__img" src="../assets/img/IMG_0837_github.jpg" class="hello__photo" />
         <h2 class="hello__header">
           My name is Basia and I'm aspiring
@@ -167,6 +174,7 @@
       <section class="skills">
         <!--<h1 class="skills__heading">My skills</h1>-->
 
+        <div class="skills__container">
         <div class="skills__icon">💪</div>
         <h3 class="skills__heading">Working knowledge</h3>
         <ul class="skills__list skills__list--working">
@@ -180,7 +188,9 @@
           <li>JS: DOM manipulations</li>
           <li>SASS</li>
         </ul>
-
+      </div>
+      
+        <div class="skills__container">
         <div class="skills__icon">🤔</div>
         <h3>Know something</h3>
         <ul class="skills__list skills__list--know-somethig">
@@ -192,7 +202,9 @@
           <li>Git</li>
           <li>Accesibility</li>
         </ul>
-
+      </div>
+      
+      <div class="skills__container">
         <div class="skills__icon">🎓</div>
         <h3>Want to learn</h3>
         <ul class="skills__list skills__list--want">
@@ -204,6 +216,7 @@
           <li>Gatsby</li>
           <li>Websockets</li>
         </ul>
+      </div>
       </section>
 
       <section class="recent__projects">
@@ -290,9 +303,10 @@
             </defs>
             </svg>
             </a>
+            <div class="contact-me__mail"><a class="hello__mail" href="mailto:kaluzabarbara26@gmail.com"
+              >kaluzabarbara26@gmail.com</a></div>
         </div>
-        <div class="contact-me__mail"><a class="hello__mail" href="mailto:kaluzabarbara26@gmail.com"
-          >kaluzabarbara26@gmail.com</a></div>
+        
         
       </section>
     </main>
