@@ -3,25 +3,28 @@
     color: #234361;
     text-align: center;
     padding-top: 64px;
+    &__heading {
+        margin-bottom: 32px;
+    }
+    &__description {
+        line-height: 32px;
+    }
+    &__links {
+        margin-bottom: 64px;
+        margin-top: 56px;
+    }
+    &__link {
+        text-decoration: none;
+    }
+    &__mail {
+        margin-top: 64px;
+        padding-bottom: 88px;
+    }
 }
 
-.contact-me__heading {
-    margin-bottom: 32px;
-}
 
-.contact-me__description {
-    line-height: 32px;
-}
 
-.contact-me__links {
-    margin-bottom: 64px;
-    margin-top: 56px;
-}
 
-.contact-me__link {
-    text-decoration: none;
-}
-.contact-me__mail {
-    margin-top: 64px;
-    padding-bottom: 88px;
-}
+
+
+

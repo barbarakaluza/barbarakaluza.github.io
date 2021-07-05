@@ -1,35 +1,80 @@
 .github {
   background: #212528;
-  width: 287px;
-  height: 320px;
   border-radius: 16px;
-  margin-top: 46px;
+  margin: 0 16px 24px 16px;
+  filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.25));
+  overflow: hidden;
+  &__project {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 16px 40px 16px;
+  }
+  &__gap {
+    background-color: #1e1e1e;
+    height: 40px;
+    border-radius: 16px 16px 0px 0px;
+  }
+  &__circles {
+    display: flex;
+    padding: 16px;
+  }
+  &__icon {
+    width: 22px;
+    height: 22px;
+    padding-left: 16px;
+    padding-top: 24px;
+  }
+  &__circle {
+    width: 8px;
+    height: 8px;
+    background: #464a4d;
+    border-radius: 50%;
+    margin: 0px 4px 0px 4px;
+  }
 }
 
-.github__gap {
-  background-color: #1e1e1e;
-  height: 40px;
-  border-radius: 16px 16px 0px 0px;
+.project__field {
+  color: #808082;
+  font-family: Roboto Mono;
+  font-size: 13px;
+  line-height: 24px;
+  font-weight: normal;
+  font-style: normal;
+  text-align: right;
+}
+.project__value {
+  font-family: Roboto Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 24px;
+  color: #a3a3a3;
+  &--bold {
+    color: #ffffff;
+    font-family: Roboto Mono;
+    font-style: normal;
+    font-size: 13px;
+  }
 }
 
-.github__cirles {
-  display: flex;
-  padding: 16px;
+.project__title {
+  margin-bottom: 8px;
 }
 
-.github__icon {
-  width: 22px;
-  height: 22px;
-  padding-left: 16px;
-  padding-top: 24px;
-  margin-bottom: 42px;
+.project__paragraf {
+  margin: 0;
 }
 
-.circle {
-  width: 8px;
-  height: 8px;
-  background: #464a4d;
-  border-radius: 50%;
-  margin: 0px 4px 0px 4px;
+.project__link {
+  color: #14b5d0;
+  font-family: Roboto Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 24px;
 }
 
+.project__lt{
+  color: #808082;
+}
