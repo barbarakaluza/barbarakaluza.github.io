@@ -75,6 +75,15 @@
   line-height: 24px;
 }
 
-.project__lt{
+.project__lt {
   color: #808082;
+}
+
+.projects__github-grid {
+  display: grid;
+  column-gap: 24px;
+  row-gap: 24px;
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
 }

@@ -2,11 +2,57 @@
   background-color: #ffffff;
   text-align: center;
   padding: 64px 16px 86px;
-  &__img  {
+  @media screen and (min-width: 768px) {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+  &__image {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     border: 12px solid #f6f9fd;
+    @media screen and (min-width: 959px) {
+      width: 178px;
+      height: 178px;
+      border: 18px solid #f6f9fd;
+      &-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+  &__bubble {
+    position: absolute;
+    left: calc(50% + 90px);
+    top: -26px;
+  }
+  &__cloud {
+    display: none;
+    position: relative;
+    @media screen and (min-width: 959px) {
+      display: inline-block;
+      background: #1070CA;
+      color: #fff;
+      font-size: 32px;
+      font-weight: bold;
+      width: 230px;
+      height: 72px;
+      border-radius: 16px;
+      padding: 16px 19px;
+      position: relative;
+      &:after {
+        content: "";
+        display: block;
+        width: 17.42px;
+        height: 22.66px;
+        top: 100%;
+        left: 32px;
+        background: url("../assets/img/Speech_cloud.svg");
+        position: absolute;
+      }
+    }
   }
   &__description {
     margin: 16px;
@@ -31,16 +77,3 @@
     }
   }
 }
-
-
-
-  
-
-
-
-
-
-
-
-
-
