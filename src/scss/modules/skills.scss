@@ -10,7 +10,14 @@
   line-height: 56px;
   text-align: center;
 }
-
+.skills__container {
+  @media screen and (min-width: 959px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 24px;
+    
+  }
+}
 .skills__icon {
   margin-top: 64px;
   font-size: 42px;
