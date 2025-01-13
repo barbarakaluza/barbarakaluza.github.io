@@ -1,7 +1,7 @@
 import Header from "../components/Header/Header";
 import ButtonAdd from "../components/ButtonAdd/ButtonAdd";
 import ButtonList from "../components/ButtonList/ButtonList";
-
+import Footer from "../components/Footer/Footer";
 
 function Home() {
     return (
@@ -12,6 +12,8 @@ function Home() {
             </div>
            
             <Header/>
+            <Footer/>
+            
         </div>
     
     )
