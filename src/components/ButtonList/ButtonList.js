@@ -1,5 +1,5 @@
 function ButtonList() {
-    return <button>Przepisy</button>
+    return <button className="button">Przepisy</button>
 }
 
 export default ButtonList;

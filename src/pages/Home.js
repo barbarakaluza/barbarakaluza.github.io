@@ -6,8 +6,11 @@ import ButtonList from "../components/ButtonList/ButtonList";
 function Home() {
     return (
         <div>
-            <ButtonList/>
-            <ButtonAdd/>
+            <div className="button-container">
+                <ButtonList/>
+                <ButtonAdd/>
+            </div>
+           
             <Header/>
         </div>
     
