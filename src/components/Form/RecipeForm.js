@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const RecipeForm = ({ onClose }) => {
+const RecipeForm = ({ onClose, onAddRecipe }) => {
   const [recipe, setRecipe] = useState({
     title: "",
     ingredients: "",
@@ -18,7 +18,7 @@ const RecipeForm = ({ onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submitted Recipe:", recipe);
+    onAddRecipe(recipe);
     alert("Przepis został zapisany!");
     setRecipe({ title: "", ingredients: "", steps: "", preparationTime: "" });
     onClose(); // Close the form after submission

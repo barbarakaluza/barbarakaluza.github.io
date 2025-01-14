@@ -13,6 +13,10 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  padding-top: 80px;
+}
+
 *,
 *::before,
 *::after {
@@ -34,12 +38,17 @@ html {
 }
 
 .button-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 10px;
+    width: 100%;
+    margin: 0;
 }
 
 .header {
+  height: 70px;
   margin: 15px;
   margin-bottom: 25px;
 }
