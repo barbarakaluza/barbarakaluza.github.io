@@ -1,0 +1,36 @@
+{
+  "id": "/",
+  "short_name": "MyApp",
+  "name": "My Progressive Web App",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "homepage": "https://github.com/barbarakaluza/recipes-app",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "screenshots": [
+    {
+      "src": "screenshot1-wide.png",
+      "type": "image/png",
+      "sizes": "1280x720",
+      "form_factor": "wide"
+    },
+    {
+      "src": "screenshot2.png",
+      "type": "image/png",
+      "sizes": "720x1280",
+      "form_factor": "narrow"
+    }
+  ]
+}
