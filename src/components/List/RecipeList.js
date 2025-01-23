@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RecipeList = ({ recipes, onShowDetails, onClose }) => {
+const RecipeList = ({ recipes, onShowDetails, onClose, onDelete }) => {
   return (
     <div className="recipe-list-container">
       <button className="close-button" onClick={onClose}>&times;</button>
@@ -15,7 +15,13 @@ const RecipeList = ({ recipes, onShowDetails, onClose }) => {
                 className="recipe-title" 
                 onClick={() => onShowDetails(index)}
               >
-                {recipe.title}
+                {recipe.fields["recipe-title"]}
+              </button>
+              {/* Dodajemy przycisk do usunięcia przepisu */}
+              <button 
+                onClick={() => onDelete(recipe.id)} 
+                className="delete-button">
+                Usuń
               </button>
             </li>
           ))}

@@ -3,6 +3,34 @@ import RecipeForm from "../Form/RecipeForm";
 import RecipeList from "../List/RecipeList";
 import RecipeDetails from "../List/RecipeDetails";
 
+// Funkcja do dodania przepisu do Airtable
+const addRecipeToAirtable = async (newRecipe) => {
+  const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY;
+  const BASE_ID = process.env.REACT_APP_AIRTABLE_BASE_ID;
+  const TABLE_NAME = process.env.REACT_APP_AIRTABLE_TABLE_NAME;
+
+  const url = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
+  
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${API_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      fields: {
+        "recipe-title": newRecipe.title,
+        "recipe-ingredients": newRecipe.ingredients,
+        "recipe-steps": newRecipe.steps,
+        "recipe-time": newRecipe.preparationTime,
+      },
+    }),
+  });
+  
+  const data = await response.json();
+  return data;
+};
+
 const ButtonAdd = () => {
   const [showForm, setShowForm] = useState(false);
   const [recipes, setRecipes] = useState([]);
@@ -17,8 +45,12 @@ const ButtonAdd = () => {
     setShowList((prev) => !prev);
   };
 
-  const addRecipe = (newRecipe) => {
-    setRecipes((prevRecipes) => [...prevRecipes, newRecipe]);
+  const addRecipe = async (newRecipe) => {
+    // Dodajemy przepis do Airtable
+    const savedRecipe = await addRecipeToAirtable(newRecipe);
+
+    // Po zapisaniu w Airtable, dodajemy przepis do stanu aplikacji
+    setRecipes((prevRecipes) => [...prevRecipes, savedRecipe]);
   };
 
   const showDetails = (index) => {
@@ -26,8 +58,28 @@ const ButtonAdd = () => {
   };
 
   const deleteRecipe = (index) => {
+    const recipeToDelete = recipes[index];
     setRecipes((prevRecipes) => prevRecipes.filter((_, i) => i !== index));
     setSelectedRecipe(null);
+
+    // Opcjonalnie, jeśli chcesz usunąć przepis z Airtable:
+    deleteRecipeFromAirtable(recipeToDelete.id);
+  };
+
+  // Funkcja do usunięcia przepisu z Airtable
+  const deleteRecipeFromAirtable = async (recipeId) => {
+    const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY;
+    const BASE_ID = process.env.REACT_APP_AIRTABLE_BASE_ID;
+    const TABLE_NAME = process.env.REACT_APP_AIRTABLE_TABLE_NAME;
+
+    const url = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}/${recipeId}`;
+    
+    await fetch(url, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+      },
+    });
   };
 
   return (
@@ -40,6 +92,7 @@ const ButtonAdd = () => {
           Przepisy ☰
         </button>
       </div>
+
       {showForm && (
         <div className="overlay">
           <RecipeForm onClose={() => setShowForm(false)} onAddRecipe={addRecipe} />
@@ -66,4 +119,5 @@ const ButtonAdd = () => {
     </div>
   );
 };
+
 export default ButtonAdd;
