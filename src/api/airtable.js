@@ -1,4 +1,3 @@
-// src/api/airtable.js
 import axios from 'axios';
 
 const API_URL = 'https://api.airtable.com/v0/app62rzZFUnrD0MxA/Recipes';
@@ -30,5 +29,19 @@ export const deleteRecipeFromAirtable = async (recipeId) => {
     return response.data;
   } catch (error) {
     console.error('Error deleting recipe from Airtable:', error);
+  }
+};
+
+// Funkcja pobierania przepisów
+export const fetchRecipes = async () => {
+  try {
+    const response = await axios.get(API_URL, {
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+      },
+    });
+    return response.data.records;  // W Airtable dane są w polu 'records'
+  } catch (error) {
+    console.error('Error fetching recipes from Airtable:', error);
   }
 };

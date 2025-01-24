@@ -10,17 +10,17 @@ const RecipeList = ({ recipes, onShowDetails, onClose, onDelete }) => {
       ) : (
         <ul>
           {recipes.map((recipe, index) => (
-            <li key={index}>
+            <li key={recipe.id || index}>
               <button 
                 className="recipe-title" 
                 onClick={() => onShowDetails(index)}
               >
-                {recipe.fields["recipe-title"]}
+                {recipe.fields?.["recipe-title"] || "Brak tytułu"}
               </button>
-              {/* Dodajemy przycisk do usunięcia przepisu */}
               <button 
                 onClick={() => onDelete(recipe.id)} 
-                className="delete-button">
+                className="delete-button"
+              >
                 Usuń
               </button>
             </li>

@@ -12,11 +12,15 @@ function Home() {
 
   // Funkcja usuwająca przepis z Airtable
   const deleteRecipe = async (recipeId) => {
-    // Wywołanie funkcji usuwającej z Airtable
-    await deleteRecipeFromAirtable(recipeId);
-    // Zaktualizowanie stanu przepisów po usunięciu
-    setRecipes((prevRecipes) => prevRecipes.filter((recipe) => recipe.id !== recipeId));
-    setSelectedRecipe(null);  // Zamknięcie widoku szczegółów przepisu
+    try {
+      // Wywołanie funkcji usuwającej z Airtable
+      await deleteRecipeFromAirtable(recipeId);
+      // Zaktualizowanie stanu przepisów po usunięciu
+      setRecipes((prevRecipes) => prevRecipes.filter((recipe) => recipe.id !== recipeId));
+      setSelectedRecipe(null);  // Zamknięcie widoku szczegółów przepisu
+    } catch (error) {
+      console.error("Error deleting recipe:", error);
+    }
   };
 
   // Funkcja dodająca nowy przepis do stanu
@@ -25,8 +29,13 @@ function Home() {
   };
 
   const loadRecipes = async () => {
-    const fetchedRecipes = await fetchRecipes();
-    setRecipes(fetchedRecipes);
+    try {
+      const fetchedRecipes = await fetchRecipes();
+      setRecipes(fetchedRecipes);
+    } catch (error) {
+      console.error("Error loading recipes:", error);
+      // Możesz dodać stan błędu, aby wyświetlić komunikat w UI
+    }
   };
 
   useEffect(() => {
