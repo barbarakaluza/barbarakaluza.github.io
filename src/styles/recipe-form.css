@@ -1,0 +1,207 @@
+/* .recipe-form {
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+    font-family: Arial, sans-serif;
+}
+
+.recipe-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.recipe-form label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.recipe-form input,
+.recipe-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  resize: none;
+  height: 100px;
+}
+
+.recipe-form-container {
+  position: relative;
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 500px;
+  font-family: Arial, sans-serif;
+}
+
+.recipe-form input,
+.recipe-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+} */
+
+/* Globalne style formularza */
+.recipe-form-container {
+  position: relative;
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 500px;
+  font-family: Arial, sans-serif;
+  margin: 0 auto; /* Wyśrodkowanie formularza */
+}
+
+.recipe-form {
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.recipe-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Style formularza */
+.recipe-form label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.recipe-form input,
+.recipe-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.recipe-form textarea {
+  resize: none;
+  height: 100px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Dostosowanie dla urządzeń mobilnych */
+@media (max-width: 600px) {
+  .recipe-form-container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .recipe-form {
+    padding: 15px;
+  }
+
+  .recipe-form h2 {
+    font-size: 20px;
+  }
+
+  .recipe-form label {
+    font-size: 14px;
+  }
+
+  .recipe-form input,
+  .recipe-form textarea {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  button {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+/* Dostosowanie dla tabletów */
+@media (min-width: 601px) and (max-width: 900px) {
+  .recipe-form-container {
+    width: 80%;
+    padding: 20px;
+  }
+
+  .recipe-form {
+    padding: 20px;
+  }
+
+  .recipe-form h2 {
+    font-size: 24px;
+  }
+
+  .recipe-form label {
+    font-size: 16px;
+  }
+
+  .recipe-form input,
+  .recipe-form textarea {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  button {
+    font-size: 16px;
+  }
+}
+
+/* Dostosowanie dla większych ekranów */
+@media (min-width: 901px) {
+  .recipe-form-container {
+    width: 60%;
+    padding: 30px;
+  }
+
+  .recipe-form {
+    padding: 30px;
+  }
+
+  .recipe-form h2 {
+    font-size: 28px;
+  }
+
+  .recipe-form label {
+    font-size: 18px;
+  }
+
+  .recipe-form input,
+  .recipe-form textarea {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  button {
+    font-size: 18px;
+  }
+}
+

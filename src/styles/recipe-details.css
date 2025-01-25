@@ -1,0 +1,29 @@
+.recipe-details-container {
+    position: relative;
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 20px auto;
+  }
+  
+  .recipe-details-container h2 {
+    text-align: center;
+    color: #444;
+    margin-bottom: 15px;
+  }
+  
+  .recipe-details-container p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  
+  .recipe-details-container strong {
+    color: #444;
+    font-weight: bold;
+  }
