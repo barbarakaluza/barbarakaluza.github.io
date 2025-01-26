@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/recipes-app/static/css/main.b2c7ad38.css",
-    "main.js": "/recipes-app/static/js/main.d7b1cd24.js",
-    "static/js/453.5e2f1d64.chunk.js": "/recipes-app/static/js/453.5e2f1d64.chunk.js",
-    "service-worker.js": "/recipes-app/service-worker.js",
-    "index.html": "/recipes-app/index.html",
-    "main.b2c7ad38.css.map": "/recipes-app/static/css/main.b2c7ad38.css.map",
-    "main.d7b1cd24.js.map": "/recipes-app/static/js/main.d7b1cd24.js.map",
-    "453.5e2f1d64.chunk.js.map": "/recipes-app/static/js/453.5e2f1d64.chunk.js.map"
+    "main.css": "/you-recipes-app/static/css/main.b2c7ad38.css",
+    "main.js": "/you-recipes-app/static/js/main.a4569890.js",
+    "static/js/453.5e2f1d64.chunk.js": "/you-recipes-app/static/js/453.5e2f1d64.chunk.js",
+    "service-worker.js": "/you-recipes-app/service-worker.js",
+    "index.html": "/you-recipes-app/index.html",
+    "main.b2c7ad38.css.map": "/you-recipes-app/static/css/main.b2c7ad38.css.map",
+    "main.a4569890.js.map": "/you-recipes-app/static/js/main.a4569890.js.map",
+    "453.5e2f1d64.chunk.js.map": "/you-recipes-app/static/js/453.5e2f1d64.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b2c7ad38.css",
-    "static/js/main.d7b1cd24.js"
+    "static/js/main.a4569890.js"
   ]
 }
