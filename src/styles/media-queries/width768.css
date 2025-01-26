@@ -34,3 +34,7 @@
       margin: 0 auto; /* Centrowanie formularza */
     }
   }
+
+  .display {
+    display: none;
+  }

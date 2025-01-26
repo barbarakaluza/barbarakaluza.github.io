@@ -45,11 +45,12 @@ function Home() {
     setIsListVisible(prevState => !prevState);
   };
 
+  
   return (
     <div>
       <div className="button-container">
         <ButtonAdd onAddRecipe={addRecipe} />
-        <button className="button" onClick={toggleListVisibility}>
+        <button className="button display" onClick={toggleListVisibility}>
           {isListVisible ? "Hide List" : "Show List"}  {/* Zmieniamy tekst przycisku */}
         </button>
       </div>
