@@ -2,7 +2,7 @@
   "name": "recipes-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://recipes-app.github.io",
+  "homepage": "https://barbarakaluza.github.io/recipes-app",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.4.0",
