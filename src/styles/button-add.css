@@ -1,4 +1,4 @@
-.button {
+/* .button {
     background-color: #26975C;
     border-radius: 20px;
     border: 0;
@@ -10,7 +10,21 @@
     padding-left: 15px;
     padding-right: 15px;
     margin: 15px;
-}
+} */
+
+.button {
+    background-color: #26975C;
+    border-radius: 20px;
+    border: 0;
+    font-style: League Spartan;
+    font-weight: bold;
+    font-size: 12px;
+    color: white;
+    padding: 10px 15px; /* Zmniejsz padding */
+    margin: 10px; /* Zmniejsz margines */
+    max-width: calc(100% - 20px); /* Zapewnia, że przycisk nie wyjdzie poza ekran */
+    box-sizing: border-box; /* Upewnij się, że padding jest uwzględniany w rozmiarze */
+  }
 
 .button-container {
     z-index: 1000;

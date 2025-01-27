@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ButtonList() {
+const ButtonList = () => {
   const [showList, setShowList] = useState(false);
 
   const recipes = [
@@ -9,9 +9,13 @@ function ButtonList() {
     { id: 3, title: "Brownie Czekoladowe" },
   ];
 
+  const toggleList = () => {
+    setShowList((prev) => !prev);
+  };
+
   return (
     <div>
-      <button className="button" onClick={() => setShowList(!showList)}>
+      <button className="button" onClick={toggleList}>
         Przepisy ☰
       </button>
 
@@ -29,6 +33,6 @@ function ButtonList() {
       )}
     </div>
   );
-}
+};
 
 export default ButtonList;

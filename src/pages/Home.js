@@ -3,20 +3,21 @@ import Header from "../components/Header/Header";
 import ButtonAdd from "../components/ButtonAdd/ButtonAdd";
 import Footer from "../components/Footer/Footer";
 import RecipeList from "../components/List/RecipeList";
+import ButtonList from "../components/ButtonList/ButtonList";
 import RecipeDetails from "../components/List/RecipeDetails";
 import { fetchRecipes, deleteRecipeFromAirtable } from "../api/airtable"; // Funkcje do API Airtable
 
 function Home() {
   const [recipes, setRecipes] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
-  const [isListVisible, setIsListVisible] = useState(false);  // Nowy stan kontrolujący widoczność listy
+  const [isListVisible, setIsListVisible] = useState(false); // Stan widoczności listy
 
   // Funkcja usuwająca przepis z Airtable
   const deleteRecipe = async (recipeId) => {
     try {
       await deleteRecipeFromAirtable(recipeId);
       setRecipes((prevRecipes) => prevRecipes.filter((recipe) => recipe.id !== recipeId));
-      setSelectedRecipe(null);  // Zamknięcie widoku szczegółów przepisu
+      setSelectedRecipe(null); // Zamknięcie widoku szczegółów przepisu
     } catch (error) {
       console.error("Error deleting recipe:", error);
     }
@@ -42,29 +43,28 @@ function Home() {
 
   // Funkcja do toggle'owania widoczności listy
   const toggleListVisibility = () => {
-    setIsListVisible(prevState => !prevState);
+    setIsListVisible((prevState) => !prevState);
   };
 
-  
   return (
     <div>
+      <Header />
       <div className="button-container">
         <ButtonAdd onAddRecipe={addRecipe} />
         <button className="button display" onClick={toggleListVisibility}>
-          {isListVisible ? "Hide List" : "Show List"}  {/* Zmieniamy tekst przycisku */}
+          {isListVisible ? "Ukryj listę" : "Pokaż listę"}
         </button>
+        <ButtonList /> 
       </div>
-
-      <Header />
       <Footer />
 
       {/* Lista przepisów tylko, jeśli isListVisible jest true */}
       {isListVisible && (
-        <RecipeList 
-          recipes={recipes} 
-          onShowDetails={(index) => setSelectedRecipe(index)} 
-          onDelete={deleteRecipe} 
-          onClose={() => setSelectedRecipe(null)} 
+        <RecipeList
+          recipes={recipes}
+          onShowDetails={(index) => setSelectedRecipe(index)}
+          onDelete={deleteRecipe}
+          onClose={() => setSelectedRecipe(null)}
         />
       )}
 
