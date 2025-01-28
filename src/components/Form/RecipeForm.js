@@ -1,34 +1,6 @@
 import React, { useState } from "react";
 
-// Funkcja do wysyłania przepisu do Airtable
-const addRecipeToAirtable = async (newRecipe) => {
-  const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY;
-  const BASE_ID = process.env.REACT_APP_AIRTABLE_BASE_ID;
-  const TABLE_NAME = process.env.REACT_APP_AIRTABLE_TABLE_NAME;
-
-  const url = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
-  
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${API_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      fields: {
-        "recipe-title": newRecipe.title,
-        "recipe-ingredients": newRecipe.ingredients,
-        "recipe-steps": newRecipe.steps,
-        "recipe-time": newRecipe.preparationTime,
-      },
-    }),
-  });
-
-  const data = await response.json();
-  return data; // Zwrócenie odpowiedzi z Airtable, np. zapisanego przepisu
-};
-
-const RecipeForm = ({ onClose, onAddRecipe }) => {
+const RecipeForm = React.memo(({ onClose, onAddRecipe }) => {
   const [recipe, setRecipe] = useState({
     title: "",
     ingredients: "",
@@ -47,7 +19,10 @@ const RecipeForm = ({ onClose, onAddRecipe }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Przygotowanie danych w formacie, który odpowiada Twojej tabeli w Airtable
+    // Lazy loading dla funkcji `addRecipeToAirtable`
+    const { addRecipeToAirtable } = await import("../../api/airtable"); 
+
+    // Przygotowanie danych
     const recipeData = {
       title: recipe.title,
       ingredients: recipe.ingredients,
@@ -130,6 +105,6 @@ const RecipeForm = ({ onClose, onAddRecipe }) => {
       </form>
     </div>
   );
-};
+});
 
 export default RecipeForm;
