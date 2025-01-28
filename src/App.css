@@ -17,8 +17,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Lobster&display=swap'); */
 
 
+/* Importy (bez zmian) */
 
-
+/* Podstawowy styl aplikacji */
 .App {
   text-align: center;
   font-family: League Spartan;
@@ -38,7 +39,6 @@ body {
   box-sizing: inherit;
 }
 
-
 h2 {
   text-align: center;
   color: #444;
@@ -55,11 +55,59 @@ li {
   margin-bottom: 15px;
 }
 
-
-
 p {
   text-align: center;
   color: #888;
   font-style: italic;
 }
 
+.header-wrapper {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.header {
+  font-size: 2rem;
+  color: #333;
+}
+
+/* Kontener na obrazy */
+.image-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Odstęp między obrazkami */
+  flex-wrap: wrap; /* Umożliwia zawijanie obrazków w przypadku małych ekranów */
+  margin-top: 20px;
+  /* Dodajemy margines na większe ekrany */
+}
+
+/* Styl obrazków */
+.img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px; /* Zaokrąglone rogi dla obrazków */
+  width: 45%; /* Na większych ekranach szerokość na 45% */
+  margin-bottom: 20px; /* Dodatkowy margines między obrazkami */
+}
+
+/* Style dla ekranów powyżej 768px */
+@media (min-width: 768px) {
+  .image-container {
+    flex-direction: row; /* Obrazy obok siebie */
+  }
+
+  .img {
+    width: 45%; /* Obrazki mają 45% szerokości na dużych ekranach */
+  }
+}
+
+/* Style dla ekranów poniżej 768px */
+@media (max-width: 768px) {
+  .image-container {
+    flex-direction: column; /* Obrazy jeden pod drugim */
+  }
+
+  .img {
+    width: 100%; /* Obrazki zajmują pełną szerokość */
+  }
+}
