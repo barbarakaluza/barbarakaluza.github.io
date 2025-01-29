@@ -28,7 +28,6 @@ const RecipeList = ({ recipes, onShowDetails, onClose, onDelete }) => {
               >
                 Usuń
               </button>
-              {recipe.id}
             </li>
           ))}
         </ul>
