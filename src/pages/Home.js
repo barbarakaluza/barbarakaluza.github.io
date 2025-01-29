@@ -1,73 +1,77 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header/Header";
-import ButtonAdd from "../components/ButtonAdd/ButtonAdd";
+import ButtonAdd from "../components/ButtonAdd/ButtonAdd"; // Przycisk do dodawania przepisów
 import Footer from "../components/Footer/Footer";
-import RecipeList from "../components/List/RecipeList";
-import ButtonList from "../components/ButtonList/ButtonList";
-import RecipeDetails from "../components/List/RecipeDetails";
-import { fetchRecipes, deleteRecipeFromAirtable } from "../api/airtable"; // Funkcje do API Airtable
+import RecipeList from "../components/List/RecipeList"; // Komponent listy przepisów
+import ButtonList from "../components/ButtonList/ButtonList"; // Komponent przycisku wyświetlającego listę
+import RecipeDetails from "../components/List/RecipeDetails"; // Komponent szczegółów przepisu
+import { fetchRecipes, deleteRecipeFromAirtable } from "../api/airtable"; // Funkcje do pobierania i usuwania przepisów
 
 function Home() {
-  const [recipes, setRecipes] = useState([]);
-  const [selectedRecipe, setSelectedRecipe] = useState(null);
-  const [isListVisible, setIsListVisible] = useState(false); // Stan widoczności listy
+  const [recipes, setRecipes] = useState([]); // Lista przepisów
+  const [selectedRecipe, setSelectedRecipe] = useState(null); // Wybrany przepis
+  const [isListVisible, setIsListVisible] = useState(false); // Stan widoczności listy przepisów
 
-  // Funkcja usuwająca przepis z Airtable
-  const deleteRecipe = async (recipeId) => {
-    try {
-      await deleteRecipeFromAirtable(recipeId);
-      setRecipes((prevRecipes) => prevRecipes.filter((recipe) => recipe.id !== recipeId));
-      setSelectedRecipe(null); // Zamknięcie widoku szczegółów przepisu
-    } catch (error) {
-      console.error("Error deleting recipe:", error);
-    }
-  };
+  // Pobieranie przepisów z API
+  useEffect(() => {
+    const loadRecipes = async () => {
+      try {
+        const fetchedRecipes = await fetchRecipes();
+        setRecipes(fetchedRecipes || []);
+      } catch (error) {
+        console.error("Błąd podczas ładowania przepisów:", error);
+      }
+    };
 
-  // Funkcja dodająca nowy przepis do stanu
+    loadRecipes();
+  }, []);
+
+  // Dodawanie nowego przepisu do listy
   const addRecipe = (newRecipe) => {
     setRecipes((prevRecipes) => [...prevRecipes, newRecipe]);
   };
 
-  const loadRecipes = async () => {
+  // Usuwanie przepisu z listy
+  const deleteRecipe = async (recipeId) => {
     try {
-      const fetchedRecipes = await fetchRecipes();
-      setRecipes(fetchedRecipes);
+      await deleteRecipeFromAirtable(recipeId);
+      setRecipes((prevRecipes) => prevRecipes.filter((recipe) => recipe.id !== recipeId));
+      setSelectedRecipe(null); // Zamknięcie szczegółów przepisu po usunięciu
     } catch (error) {
-      console.error("Error loading recipes:", error);
+      console.error("Błąd podczas usuwania przepisu:", error);
     }
   };
 
-  useEffect(() => {
-    loadRecipes();
-  }, []);
-
-  // Funkcja do toggle'owania widoczności listy
+  // Toggle listy przepisów
   const toggleListVisibility = () => {
-    setIsListVisible((prevState) => !prevState);
+    setIsListVisible((prev) => !prev);
   };
 
   return (
     <div>
       <Header />
       <div className="button-container">
-        <ButtonAdd onAddRecipe={addRecipe} />
+        <ButtonAdd onAddRecipe={addRecipe} /> {/* Przycisk do dodawania przepisu */}
         <button className="button display" onClick={toggleListVisibility}>
           {isListVisible ? "Ukryj listę" : "Pokaż listę"}
         </button>
-        <ButtonList /> 
+        <ButtonList recipes={recipes} />
       </div>
-      <Footer />
 
-      {/* Lista przepisów tylko, jeśli isListVisible jest true */}
+      {/* Komponent ButtonList */}
+      
+
+      {/* Lista przepisów pojawia się, gdy isListVisible jest true */}
       {isListVisible && (
         <RecipeList
           recipes={recipes}
           onShowDetails={(index) => setSelectedRecipe(index)}
           onDelete={deleteRecipe}
-          onClose={() => setSelectedRecipe(null)}
+          onClose={toggleListVisibility}
         />
       )}
 
+      {/* Wyświetlanie szczegółów przepisu */}
       {selectedRecipe !== null && (
         <RecipeDetails
           recipe={recipes[selectedRecipe]}
@@ -75,6 +79,8 @@ function Home() {
           onDelete={() => deleteRecipe(recipes[selectedRecipe].id)}
         />
       )}
+
+      <Footer />
     </div>
   );
 }
