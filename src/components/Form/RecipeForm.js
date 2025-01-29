@@ -19,28 +19,42 @@ const RecipeForm = React.memo(({ onClose, onAddRecipe }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Konwertowanie preparationTime na liczbę
+    const preparationTime = Number(recipe.preparationTime);
+
+    // Walidacja, aby upewnić się, że preparationTime jest liczbą
+    if (isNaN(preparationTime)) {
+      alert('Czas przygotowania musi być liczbą!');
+      return; // Zatrzymaj przetwarzanie formularza, jeśli nie jest liczbą
+    }
+
     // Lazy loading dla funkcji `addRecipeToAirtable`
-    const { addRecipeToAirtable } = await import("../../api/airtable"); 
+    const { addRecipeToAirtable } = await import("../../api/airtable");
 
     // Przygotowanie danych
     const recipeData = {
       title: recipe.title,
       ingredients: recipe.ingredients,
       steps: recipe.steps,
-      preparationTime: recipe.preparationTime,
+      preparationTime: preparationTime, // Używamy liczby
     };
 
-    // Wysłanie przepisu do Airtable
-    const savedRecipe = await addRecipeToAirtable(recipeData);
+    try {
+      // Wysłanie przepisu do Airtable
+      const savedRecipe = await addRecipeToAirtable(recipeData);
 
-    // Wywołanie funkcji onAddRecipe, aby przekazać dane do głównej aplikacji
-    onAddRecipe(savedRecipe);
+      // Wywołanie funkcji onAddRecipe, aby przekazać dane do głównej aplikacji
+      onAddRecipe(savedRecipe);
 
-    alert("Przepis został zapisany!");
+      alert("Przepis został zapisany!");
 
-    // Resetowanie formularza
-    setRecipe({ title: "", ingredients: "", steps: "", preparationTime: "" });
-    onClose(); // Zamknięcie formularza po zapisaniu
+      // Resetowanie formularza
+      setRecipe({ title: "", ingredients: "", steps: "", preparationTime: "" });
+      onClose(); // Zamknięcie formularza po zapisaniu
+    } catch (error) {
+      console.error("Błąd przy zapisywaniu przepisu:", error);
+      alert("Wystąpił błąd podczas zapisywania przepisu.");
+    }
   };
 
   return (

@@ -71,43 +71,33 @@ p {
   color: #333;
 }
 
-/* Kontener na obrazy */
+
 .image-container {
   display: flex;
   justify-content: center;
-  gap: 20px; /* Odstęp między obrazkami */
-  flex-wrap: wrap; /* Umożliwia zawijanie obrazków w przypadku małych ekranów */
+  gap: 20px; 
+  flex-wrap: wrap; 
   margin-top: 20px;
-  /* Dodajemy margines na większe ekrany */
+ 
 }
 
-/* Styl obrazków */
+
 .img {
   max-width: 100%;
   height: auto;
-  border-radius: 10px; /* Zaokrąglone rogi dla obrazków */
-  width: 45%; /* Na większych ekranach szerokość na 45% */
-  margin-bottom: 20px; /* Dodatkowy margines między obrazkami */
+  width: 100%;
+  margin-bottom: 20px; 
 }
 
-/* Style dla ekranów powyżej 768px */
+
 @media (min-width: 768px) {
   .image-container {
-    flex-direction: row; /* Obrazy obok siebie */
+    flex-direction: row; 
   }
 
   .img {
-    width: 45%; /* Obrazki mają 45% szerokości na dużych ekranach */
+    width: 45%; 
   }
 }
 
-/* Style dla ekranów poniżej 768px */
-@media (max-width: 768px) {
-  .image-container {
-    flex-direction: column; /* Obrazy jeden pod drugim */
-  }
 
-  .img {
-    width: 100%; /* Obrazki zajmują pełną szerokość */
-  }
-}

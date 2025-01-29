@@ -1,31 +1,52 @@
 import axios from 'axios';
 
-const API_URL = 'https://api.airtable.com/v0/app62rzZFUnrD0MxA/Recipes';
+const API_URL = `https://api.airtable.com/v0/appuLEuwyXhM60qVx/Recipes`;
 const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY;
 
-// Funkcja dodawania przepisu
+console.log("API_URL:", API_URL);
+console.log("API_KEY:", API_KEY ? "Klucz dostępny" : "Brak klucza API!");
+
 export const addRecipeToAirtable = async (recipeData) => {
   try {
-    const response = await axios.post(API_URL, recipeData, {
+    console.log("Dodawanie przepisu:", recipeData);
+
+    // Zastosowanie odpowiednich nazw pól z Airtable
+    const recipeFields = {
+      'recipe-title': recipeData.title,
+      'recipe-ingredients': recipeData.ingredients,
+      'recipe-steps': recipeData.steps,
+      'recipe-time': recipeData.preparationTime
+    };
+
+    const response = await axios.post(API_URL, {
+      fields: recipeFields
+    }, {
       headers: {
         Authorization: `Bearer ${API_KEY}`,
         'Content-Type': 'application/json',
       },
     });
-    return response.data;
+
+    console.log("Przepis zapisany:", response.data);
+    return response.data; 
   } catch (error) {
-    console.error('Error adding recipe to Airtable:', error);
+    console.error('Error adding recipe to Airtable:', error.response ? error.response.data : error);
+    throw error; 
   }
 };
+
+    
 
 // Funkcja usuwania przepisu
 export const deleteRecipeFromAirtable = async (recipeId) => {
   try {
+    console.log("Usuwanie przepisu o ID:", recipeId);
     const response = await axios.delete(`${API_URL}/${recipeId}`, {
       headers: {
         Authorization: `Bearer ${API_KEY}`,
       },
     });
+    console.log("Przepis usunięty:", response.data);
     return response.data;
   } catch (error) {
     console.error('Error deleting recipe from Airtable:', error);
@@ -35,11 +56,13 @@ export const deleteRecipeFromAirtable = async (recipeId) => {
 // Funkcja pobierania przepisów
 export const fetchRecipes = async () => {
   try {
+    console.log("Pobieranie przepisów z Airtable...");
     const response = await axios.get(API_URL, {
       headers: {
         Authorization: `Bearer ${API_KEY}`,
       },
     });
+    console.log("Pobrane przepisy:", response.data.records);
     return response.data.records;  // W Airtable dane są w polu 'records'
   } catch (error) {
     console.error('Error fetching recipes from Airtable:', error);
