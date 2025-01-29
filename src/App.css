@@ -80,17 +80,28 @@ p {
  
 }
 
-
 .img {
   max-width: 100%;
   height: auto;
   width: 100%;
 }
 
-.img2 {
-  visibility: hidden;
-  height: 0;
+@media (max-width: 767px) {
+  .img2 {
+    visibility: hidden;
+    height: 0;
+  }
+
+  .button-recepies {
+    width: 94px;
+  }
+
+  .button-save {
+    width: 180px;
+  }
 }
+
+
 
 @media (min-width: 768px) {
   .image-container {

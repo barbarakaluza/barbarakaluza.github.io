@@ -2,8 +2,12 @@
     .App {
       font-size: 22px;
     }
+
+    .recipe-list-container{
+      width: 600px;
+      padding: 40px 50px;
+    }
   
-    .recipe-list-container,
     .recipe-details-container,
     .recipe-form-container {
       max-width: 1000px;

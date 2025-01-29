@@ -14,7 +14,11 @@
       z-index: 1000;
     }
   
-    .recipe-list-container,
+    .recipe-list-container{
+      width: 600px;
+      padding: 40px 50px;
+    }
+
     .recipe-details-container,
     .recipe-form-container {
       max-width: 800px;

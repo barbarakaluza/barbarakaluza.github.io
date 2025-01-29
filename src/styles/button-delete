@@ -1,0 +1,14 @@
+.button-delete {
+  background-color: #f44336; /* Czerwony kolor dla przycisku */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.button-delete:hover {
+  background-color: #d32f2f; /* Jaśniejszy czerwony przy hover */
+}

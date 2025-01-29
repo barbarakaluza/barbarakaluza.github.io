@@ -112,7 +112,7 @@ const RecipeForm = React.memo(({ onClose, onAddRecipe }) => {
           />
         </div>
 
-        <button className="button" type="submit">Zapisz przepis</button>
+        <button className="button button-save" type="submit">Zapisz przepis</button>
       </form>
     </div>
   );
