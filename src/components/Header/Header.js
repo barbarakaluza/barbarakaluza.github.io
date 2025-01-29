@@ -9,7 +9,7 @@ function Header() {
             
             <div className="image-container">
                 <img className="img" src={image1} alt="food 1" />
-                <img className="img" src={image2} alt="food 2" />
+                <img className="img img2" src={image2} alt="food 2" />
             </div>
 
         </div>
