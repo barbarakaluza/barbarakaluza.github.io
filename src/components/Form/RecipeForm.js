@@ -28,9 +28,6 @@ const RecipeForm = React.memo(({ onClose, onAddRecipe }) => {
       return; // Zatrzymaj przetwarzanie formularza, jeśli nie jest liczbą
     }
 
-    // Lazy loading dla funkcji `addRecipeToAirtable`
-    const { addRecipeToAirtable } = await import("../../api/airtable");
-
     // Przygotowanie danych
     const recipeData = {
       title: recipe.title,
@@ -41,12 +38,12 @@ const RecipeForm = React.memo(({ onClose, onAddRecipe }) => {
 
     try {
       // Wysłanie przepisu do Airtable
-      const savedRecipe = await addRecipeToAirtable(recipeData);
+      //const savedRecipe = await addRecipeToAirtable(recipeData);
 
       // Wywołanie funkcji onAddRecipe, aby przekazać dane do głównej aplikacji
-      onAddRecipe(savedRecipe);
+      const savedRecipe = onAddRecipe(recipeData);
 
-      alert("Przepis został zapisany!");
+      alert("Przepis został zapisany!", savedRecipe);
 
       // Resetowanie formularza
       setRecipe({ title: "", ingredients: "", steps: "", preparationTime: "" });

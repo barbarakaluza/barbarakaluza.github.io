@@ -11,7 +11,6 @@ function Home() {
   const [recipes, setRecipes] = useState([]); // Lista przepisów
   const [selectedRecipe, setSelectedRecipe] = useState(null); // Wybrany przepis
   const [isListVisible, setIsListVisible] = useState(false); // Stan widoczności listy przepisów
-
   // Pobieranie przepisów z API
   useEffect(() => {
     const loadRecipes = async () => {
@@ -52,14 +51,10 @@ function Home() {
       <Header />
       <div className="button-container">
         <ButtonAdd onAddRecipe={addRecipe} /> {/* Przycisk do dodawania przepisu */}
-        <button className="button display" onClick={toggleListVisibility}>
-          {isListVisible ? "Ukryj listę" : "Pokaż listę"}
-        </button>
+        
+        {/* Komponent ButtonList z przyciskiem do wyświetlania/ukrywania listy */}
         <ButtonList recipes={recipes} />
       </div>
-
-      {/* Komponent ButtonList */}
-      
 
       {/* Lista przepisów pojawia się, gdy isListVisible jest true */}
       {isListVisible && (

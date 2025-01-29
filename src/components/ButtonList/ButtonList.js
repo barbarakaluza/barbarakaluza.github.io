@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const ButtonList = ({ recipes = [] }) => {
   const [showList, setShowList] = useState(false);
-
+  
   const toggleList = () => {
     setShowList((prev) => !prev);
   };
@@ -20,7 +20,7 @@ const ButtonList = ({ recipes = [] }) => {
             <ul>
               {recipes.map((recipe) => (
                 <li key={recipe.id} className="recipe-title">
-                  {recipe.title}
+                  {recipe.fields?.["recipe-title"] || "Brak tytułu"}
                 </li>
               ))}
             </ul>

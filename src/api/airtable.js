@@ -18,17 +18,20 @@ export const addRecipeToAirtable = async (recipeData) => {
       'recipe-time': recipeData.preparationTime
     };
 
-    const response = await axios.post(API_URL, {
-      fields: recipeFields
-    }, {
+    const recipesToAdd = {
+      records : [{ fields : recipeFields }]
+    }
+
+    const response = await axios.post(API_URL, recipesToAdd, {
       headers: {
         Authorization: `Bearer ${API_KEY}`,
         'Content-Type': 'application/json',
       },
     });
 
-    console.log("Przepis zapisany:", response.data);
-    return response.data; 
+    console.log("Przepis zapisany:", response.data.records[0]);
+
+    return response.data.records[0];
   } catch (error) {
     console.error('Error adding recipe to Airtable:', error.response ? error.response.data : error);
     throw error; 
@@ -53,7 +56,6 @@ export const deleteRecipeFromAirtable = async (recipeId) => {
   }
 };
 
-// Funkcja pobierania przepisów
 export const fetchRecipes = async () => {
   try {
     console.log("Pobieranie przepisów z Airtable...");
@@ -62,8 +64,8 @@ export const fetchRecipes = async () => {
         Authorization: `Bearer ${API_KEY}`,
       },
     });
-    console.log("Pobrane przepisy:", response.data.records);
-    return response.data.records;  // W Airtable dane są w polu 'records'
+    console.log("Pobrane przepisy:", response.data.records); // Logowanie danych
+    return response.data.records;  // Zwrócenie tylko 'records', ponieważ to są właściwe dane
   } catch (error) {
     console.error('Error fetching recipes from Airtable:', error);
   }
