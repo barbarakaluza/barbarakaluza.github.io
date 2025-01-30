@@ -1,3 +1,4 @@
+/* Ogólne style */
 @import './styles/button-add.css';
 @import './styles/header.css';
 @import './styles/footer.css';
@@ -11,16 +12,8 @@
 @import './styles/media-queries/width1024.css';
 @import './styles/media-queries/width1440.css';
 
-
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 
-/* @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Lobster&display=swap'); */
-
-
-/* Importy (bez zmian) */
-
-/* Podstawowy styl aplikacji */
 .App {
   text-align: center;
   font-family: League Spartan;
@@ -71,14 +64,12 @@ p {
   color: #333;
 }
 
-
 .image-container {
   display: flex;
   justify-content: center;
-  gap: 20px; 
-  flex-wrap: wrap; 
+  gap: 20px;
+  flex-wrap: wrap;
   margin-top: 20px;
- 
 }
 
 .img {
@@ -88,11 +79,45 @@ p {
 }
 
 @media (max-width: 767px) {
-  .img2 {
-    visibility: hidden;
-    height: 0;
+  /* Recipe list container should take full width */
+  .recipe-list-container {
+    width: 100%;   /* Zapewnia, że kontener będzie miał pełną szerokość */
+    padding: 10px;
+    box-sizing: border-box; /* Uwzględnia padding przy obliczaniu szerokości */
+    margin: 0;
   }
 
+  /* Heading */
+  .recipe-list-container h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  /* Fix for li to be in one row */
+  .recipe-list-container ul {
+    padding: 0;
+    margin: 0;
+    width: 100%;   /* Zajmuje całą szerokość */
+  }
+
+  .recipe-list-container li {
+    display: flex;           /* Flexbox umożliwia układ w jednej linii */
+    justify-content: space-between;  /* Przyciski po prawej */
+    align-items: center;     /* Wyrównanie elementów w poziomie */
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;             /* Zapewnia, że element zajmuje całą szerokość */
+    box-sizing: border-box;  /* Uwzględnia padding przy obliczaniu szerokości */
+  }
+
+  /* Przyciski w jednej linii */
+  .button-delete,
+  .button-edit {
+    padding: 8px 12px;
+    font-size: 14px;  /* Zmniejszenie czcionki przycisków na mniejszych ekranach */
+  }
+
+  /* Zmniejszenie szerokości przycisków */
   .button-recepies {
     width: 94px;
   }
@@ -100,18 +125,42 @@ p {
   .button-save {
     width: 180px;
   }
+
+  /* Ukrycie obrazka w wersji mobilnej (jeśli dotyczy) */
+  .img2 {
+    visibility: hidden;
+    height: 0;
+  }
 }
-
-
 
 @media (min-width: 768px) {
   .image-container {
-    flex-direction: row; 
+    flex-direction: row;
   }
 
   .img {
-    width: 45%; 
+    width: 45%;
   }
 }
 
+/* Dostosowanie dla większych ekranów */
+@media (min-width: 1024px) {
+  .recipe-list-container {
+    width: 80%;
+    margin: 0 auto;
+  }
 
+  .recipe-list-container h2 {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .recipe-list-container {
+    width: 70%;
+  }
+
+  .recipe-list-container h2 {
+    font-size: 28px;
+  }
+}

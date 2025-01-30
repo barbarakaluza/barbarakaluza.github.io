@@ -56,6 +56,7 @@ function Home() {
         <ButtonList recipes={recipes} />
       </div>
 
+      <div className="list-wrapper">
       {/* Lista przepisów pojawia się, gdy isListVisible jest true */}
       {isListVisible && (
         <RecipeList
@@ -74,6 +75,7 @@ function Home() {
           onDelete={() => deleteRecipe(recipes[selectedRecipe].id)}
         />
       )}
+      </div>
 
       <Footer />
     </div>

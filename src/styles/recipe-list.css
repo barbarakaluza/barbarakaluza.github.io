@@ -1,44 +1,66 @@
+.list-title {
+  margin-top: 50px;
+}
+
 .recipe-list-container {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    font-family: 'Arial', sans-serif;
-    color: #333;
-    position: relative;
-    padding: 20px 30px;
-    border-radius: 8px;
-    width: 200px;
-  }
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  position: relative;  /* Dodajemy to, aby pozycjonowanie przycisku było względem tego kontenera */
+  padding: 20px 30px;
+  border-radius: 8px;
+  width: 200px;
+}
 
-  .recipe-title {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    color:#333;;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: left;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
 
-  .recipe-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+.recipe-title {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.recipe-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.recipe-title span {
+  flex-grow: 1;  /* Pozwala na rozciągnięcie tytułu, by zajął dostępne miejsce */
+  margin-right: 10px;  /* Odstęp między tytułem a przyciskiem */
+}
+
+.recipe-title:hover {
+  background-color: #ead4c5;
+}
+
+@media (max-width: 767px) {
+  .recipe-list-container {
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      width: 90%;
+      max-width: 500px;
+      font-family: Arial, sans-serif;
+      z-index: 1000;
+      padding-top: 15px;
   }
-  
-  .recipe-title span {
-    flex-grow: 1; /* Pozwala na rozciągnięcie tytułu, by zajął dostępne miejsce */
-    margin-right: 10px; /* Odstęp między tytułem a przyciskiem */
-  }
-  
-  .recipe-title:hover {
-    background-color: #ead4c5;
-  }
-  
+}
