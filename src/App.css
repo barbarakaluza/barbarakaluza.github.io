@@ -6,6 +6,7 @@
 @import './styles/recipe-list.css';
 @import './styles/recipe-details.css';
 @import './styles/delete-button.css';
+@import './styles/edit-form.css';
 @import './styles/media-queries/width768.css';
 @import './styles/media-queries/width1024.css';
 @import './styles/media-queries/width1440.css';

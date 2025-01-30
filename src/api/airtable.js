@@ -41,13 +41,11 @@ export const addRecipeToAirtable = async (recipeData) => {
 //pobieranie jednego przepisu do edycji
 export const fetchRecipeById = async (id) => {
   try {
-    console.log(`Pobieranie przepisu o ID: ${id} z Airtable...`);
     const response = await axios.get(`${API_URL}/${id}`, {
       headers: {
         Authorization: `Bearer ${API_KEY}`,
       },
     });
-    console.log("Pobrany przepis:", response.data.fields);  // Logowanie danych przepisu
     return response.data.fields;  // Zwracamy tylko 'fields', ponieważ to są dane przepisu
   } catch (error) {
     console.error(`Błąd przy pobieraniu przepisu o ID: ${id} z Airtable:`, error);
@@ -58,13 +56,11 @@ export const fetchRecipeById = async (id) => {
 // Funkcja usuwania przepisu
 export const deleteRecipeFromAirtable = async (recipeId) => {
   try {
-    console.log("Usuwanie przepisu o ID:", recipeId);
     const response = await axios.delete(`${API_URL}/${recipeId}`, {
       headers: {
         Authorization: `Bearer ${API_KEY}`,
       },
     });
-    console.log("Przepis usunięty:", response.data);
     return response.data;
   } catch (error) {
     console.error('Error deleting recipe from Airtable:', error);
@@ -73,13 +69,11 @@ export const deleteRecipeFromAirtable = async (recipeId) => {
 
 export const fetchRecipes = async () => {
   try {
-    console.log("Pobieranie przepisów z Airtable...");
     const response = await axios.get(API_URL, {
       headers: {
         Authorization: `Bearer ${API_KEY}`,
       },
     });
-    console.log("Pobrane przepisy:", response.data.records); // Logowanie danych
     return response.data.records;  // Zwrócenie tylko 'records', ponieważ to są właściwe dane
   } catch (error) {
     console.error('Error fetching recipes from Airtable:', error);

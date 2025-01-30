@@ -24,10 +24,8 @@ const RecipeList = () => {
 
   const handleShowForm = async (recipeId) => {
     setLoading(true);
-    console.log('Załadowano formularz dla przepisu o ID:', recipeId);
     try {
       const recipeData = await fetchRecipeById(recipeId);
-      console.log('Pobrany przepis:', recipeData);
       setSelectedRecipe(recipeData);
       setShowForm(true);
     } catch (error) {
@@ -62,7 +60,6 @@ const RecipeList = () => {
 
       {showForm && selectedRecipe && !loading ? (
         <>
-          {console.log('Renderujemy formularz...')}
           <RecipeForm
             recipe={selectedRecipe}
             onClose={handleCloseForm}
