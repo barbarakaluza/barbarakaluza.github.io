@@ -38,6 +38,21 @@ export const addRecipeToAirtable = async (recipeData) => {
   }
 };
 
+//pobieranie jednego przepisu do edycji
+export const fetchRecipeById = async (id) => {
+  try {
+    console.log(`Pobieranie przepisu o ID: ${id} z Airtable...`);
+    const response = await axios.get(`${API_URL}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+      },
+    });
+    console.log("Pobrany przepis:", response.data.fields);  // Logowanie danych przepisu
+    return response.data.fields;  // Zwracamy tylko 'fields', ponieważ to są dane przepisu
+  } catch (error) {
+    console.error(`Błąd przy pobieraniu przepisu o ID: ${id} z Airtable:`, error);
+  }
+}
     
 
 // Funkcja usuwania przepisu
@@ -69,4 +84,6 @@ export const fetchRecipes = async () => {
   } catch (error) {
     console.error('Error fetching recipes from Airtable:', error);
   }
+
+ 
 };
